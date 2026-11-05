@@ -1,0 +1,13 @@
+{
+  "id": "001", "type": "lesson", "channel": "instrumento", "title": "Conoce tu Strato", "level": 1, "estimated_minutes": 10, "confidence": "alta",
+  "summary": "Selector, perillas y ampli: qué mueve cada cosa antes de tocar.",
+  "text": "Tu Squier Stratocaster tiene 3 pastillas single-coil y un selector de 5 posiciones. La posición 1 es la pastilla del puente (brillante, filosa) y la 5 la del cuello (cálida, redonda); la 2 y la 4 combinan dos pastillas y dan ese sonido hueco tipo \"quack\".\n\nAbajo tienes 1 volumen y 2 tonos. El brazo de trémolo baja la afinación cuando lo empujas: úsalo suave o la guitarra se desafina.\n\nEn el Frontman 10G, el interruptor Clean/O.D. cambia entre limpio y saturado. Gain es cuánta saturación, Volume es qué tan fuerte. Conecta siempre con el Volume en 0.",
+  "blocks": [
+    { "type": "gear", "note": "Punto de partida limpio. Toca la 6ª cuerda al aire y escucha.", "pickup": "3 · media", "amp": { "mode": "Clean", "gain": 4, "volume": 3, "treble": 5, "bass": 4 } },
+    { "type": "gear", "note": "Ahora el crunch: mismo ataque, otro carácter. Mueve el selector a 2.", "pickup": "2 · puente + media", "amp": { "mode": "O.D.", "gain": 5, "volume": 3, "treble": 5, "bass": 4 } },
+    { "type": "quiz", "question": "¿Qué posición del selector usa solo la pastilla del cuello?", "options": ["1", "3", "5"], "answer": 2, "why": "La 5 es el cuello: cálida y redonda. La 1 es el puente." },
+    { "type": "quiz", "question": "¿Qué haces antes de conectar el cable al ampli?", "options": ["Subir el Gain", "Bajar el Volume a 0", "Poner O.D."], "answer": 1, "why": "Conectar con volumen arriba da un golpe fuerte que castiga la bocina y tus oídos." },
+    { "type": "quiz", "question": "Si empujas el brazo de trémolo, ¿qué pasa con la nota?", "options": ["Baja", "Sube", "No cambia"], "answer": 0, "why": "Empujar afloja las cuerdas y la nota baja. Al soltar regresa, a veces no exacta: revisa con el afinador." }
+  ],
+  "checkpoint": { "action": "Toca la 6ª cuerda al aire en las posiciones 1, 3 y 5 del selector, primero en Clean y luego en O.D.", "success_criteria": "Describes con una palabra cómo suena cada una de las 6 combinaciones.", "bpm": null }
+}

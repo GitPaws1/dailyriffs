@@ -1,0 +1,13 @@
+{
+  "id": "002", "type": "lesson", "channel": "instrumento", "title": "Afina en 3 minutos", "level": 1, "estimated_minutes": 8, "confidence": "alta",
+  "summary": "Nombres de las cuerdas, el afinador y cómo afinar sin él.",
+  "text": "Las cuerdas, de la 6ª (la más gruesa) a la 1ª: E A D G B E, o sea Mi La Re Sol Si Mi. Para recordarlas: \"Mi Amigo Dice: Sol, Si Más\".\n\nToca una cuerda, déjala sonar y gira su clavija despacio. Afina siempre subiendo hacia la nota: si te pasas, baja un poco y vuelve a subir; así la cuerda se asienta y no se desafina al tocar.\n\nSin afinador: el traste 5 de una cuerda suena igual que la siguiente al aire. La excepción es la 3ª: su traste 4 da la 2ª.",
+  "blocks": [
+    { "type": "fretboard", "note": "Toca cada punto: así suena cada cuerda afinada.", "range": [0, 5], "caption": "CUERDAS AL AIRE · 6ª A 1ª", "highlight": [ { "string": 6, "fret": 0, "label": "E", "role": "root" }, { "string": 5, "fret": 0, "label": "A" }, { "string": 4, "fret": 0, "label": "D" }, { "string": 3, "fret": 0, "label": "G" }, { "string": 2, "fret": 0, "label": "B" }, { "string": 1, "fret": 0, "label": "E", "role": "root" } ] },
+    { "type": "fretboard", "note": "Afinación relativa: compara cada punto con la cuerda de abajo al aire.", "range": [0, 5], "caption": "TRASTE 5 = SIGUIENTE CUERDA · EXCEPCIÓN 3ª: TRASTE 4", "highlight": [ { "string": 6, "fret": 5, "label": "A" }, { "string": 5, "fret": 5, "label": "D" }, { "string": 4, "fret": 5, "label": "G" }, { "string": 3, "fret": 4, "label": "B", "role": "blue" }, { "string": 2, "fret": 5, "label": "E" } ] },
+    { "type": "quiz", "question": "¿Qué nota es la 5ª cuerda al aire?", "options": ["E (Mi)", "A (La)", "D (Re)"], "answer": 1, "why": "Mi Amigo Dice…: 6ª Mi, 5ª La." },
+    { "type": "quiz", "question": "El afinador marca ▲ TENSA. ¿Qué haces?", "options": ["Aflojar la cuerda", "Tensar la cuerda", "Cambiar de cuerda"], "answer": 1, "why": "La nota está baja: tensa la cuerda para subirla, poco a poco." },
+    { "type": "quiz", "question": "¿En qué traste de la 3ª cuerda suena la 2ª al aire?", "options": ["4", "5", "7"], "answer": 0, "why": "De G a B hay 4 semitonos: la única excepción a la regla del traste 5." }
+  ],
+  "checkpoint": { "action": "Afina las 6 cuerdas con el afinador (tecla MIC).", "success_criteria": "Las 6 marcan ● AFINADA en menos de 3 minutos.", "bpm": null }
+}

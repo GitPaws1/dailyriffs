@@ -1,0 +1,35 @@
+/* Adaptación móvil de los componentes (el bundle está pensado a 1200px). Solo geometría; colores y tipos intactos.
+   Tamaños tomados de la escala de tokens.json. */
+.dr-metro { flex-wrap: wrap; max-width: 100%; }
+.dr-quiz, .dr-vu, .dr-amp { max-width: 100%; }
+@media (max-width: 900px) {
+  .dr-hero { grid-template-columns: minmax(0, 1fr); }
+  .dr-hero__slab { min-height: 200px; order: -1; }
+  .dr-hero__word { font-size: 160px; }
+  .dr-hero--stack .dr-hero__word { font-size: 96px; }
+}
+@media (max-width: 760px) {
+  .dr-nav { flex-wrap: wrap; padding: var(--space-sm) var(--space-md); gap: var(--space-sm); }
+  .dr-nav__list { order: 3; width: 100%; overflow-x: auto; gap: var(--space-md); padding-bottom: 2px; }
+  .dr-nav__item { white-space: nowrap; }
+  .dr-hero__in { padding: var(--space-xl) var(--space-md); }
+  .dr-title__main { font-size: 35px; line-height: 1.11; letter-spacing: -1.16px; }
+  .dr-title__main.is-lg { font-size: 35px; line-height: 1.11; letter-spacing: -1.16px; }
+  .dr-quiz { padding: var(--space-md); border-radius: var(--radius-md); }
+  .dr-quiz__screens { grid-template-columns: minmax(0, 1fr); }
+  .dr-quiz__brand { gap: var(--space-xs); }
+  .dr-quiz__brand > div:first-child { min-width: 0; }
+  .dr-quiz__logo { font-size: 21px; }
+  .dr-quiz__model { font-size: 15px; }
+  .dr-amp__panel { grid-template-columns: minmax(0, 1fr); padding: var(--space-md); }
+  .dr-amp__knobs { flex-wrap: wrap; }
+  .dr-amp__badge { font-size: 32px; }
+  .dr-metro { padding: var(--space-md); gap: var(--space-md); }
+  .dr-metro .dr-lcd, .dr-lcd { min-width: 0; }
+  .dr-tab { padding: var(--space-md); overflow-x: auto; }
+  .dr-note { width: 100%; max-width: 320px; }
+}
+@media (max-width: 420px) {
+  .dr-hero__word { font-size: 120px; }
+  .dr-lcd__val { font-size: 56px; }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "note": "frets y fingers de la 6ª a la 1ª cuerda; -1 = muda, 0 = al aire. Validado con tonal.js (npm run validate).",
+  "chords": [
+    { "name": "Em", "quality": "menor", "group": "menor", "frets": [0,2,2,0,0,0], "fingers": [0,2,3,0,0,0], "barre": null, "base_fret": 1, "tips": ["El más fácil: rasguea las 6 cuerdas"] },
+    { "name": "E", "quality": "mayor", "group": "mayor", "frets": [0,2,2,1,0,0], "fingers": [0,2,3,1,0,0], "barre": null, "base_fret": 1, "tips": ["Es Em + dedo 1 en la 3ª cuerda"] },
+    { "name": "Am", "quality": "menor", "group": "menor", "frets": [-1,0,2,2,1,0], "fingers": [0,0,2,3,1,0], "barre": null, "base_fret": 1, "tips": ["No toques la 6ª cuerda", "Misma forma que E, una cuerda abajo"] },
+    { "name": "A", "quality": "mayor", "group": "mayor", "frets": [-1,0,2,2,2,0], "fingers": [0,0,1,2,3,0], "barre": null, "base_fret": 1, "tips": ["Tres dedos en fila en el traste 2", "Deja sonar la 1ª al aire"] },
+    { "name": "Dm", "quality": "menor", "group": "menor", "frets": [-1,-1,0,2,3,1], "fingers": [0,0,0,2,3,1], "barre": null, "base_fret": 1, "tips": ["Rasguea desde la 4ª cuerda"] },
+    { "name": "D", "quality": "mayor", "group": "mayor", "frets": [-1,-1,0,2,3,2], "fingers": [0,0,0,1,3,2], "barre": null, "base_fret": 1, "tips": ["Rasguea desde la 4ª cuerda", "Forma de triángulo"] },
+    { "name": "C", "quality": "mayor", "group": "mayor", "frets": [-1,3,2,0,1,0], "fingers": [0,3,2,0,1,0], "barre": null, "base_fret": 1, "tips": ["Arquea el dedo 3 para que suene la 4ª al aire"] },
+    { "name": "G", "quality": "mayor", "group": "mayor", "frets": [3,2,0,0,0,3], "fingers": [2,1,0,0,0,3], "barre": null, "base_fret": 1, "tips": ["Las 3 cuerdas de en medio van al aire"] },
+    { "name": "F", "quality": "mayor · fácil", "group": "mayor", "frets": [-1,-1,3,2,1,1], "fingers": [0,0,3,2,1,1], "barre": { "fret": 1, "from": 4, "to": 5 }, "base_fret": 1, "tips": ["El dedo 1 pisa 2 cuerdas a la vez (mini cejilla)", "Paso previo a la cejilla completa"] },
+    { "name": "E7", "quality": "séptima", "group": "septima", "frets": [0,2,0,1,0,0], "fingers": [0,2,0,1,0,0], "barre": null, "base_fret": 1, "tips": ["Es E quitando el dedo 3"] },
+    { "name": "A7", "quality": "séptima", "group": "septima", "frets": [-1,0,2,0,2,0], "fingers": [0,0,2,0,3,0], "barre": null, "base_fret": 1, "tips": ["La 3ª cuerda suena al aire"] },
+    { "name": "D7", "quality": "séptima", "group": "septima", "frets": [-1,-1,0,2,1,2], "fingers": [0,0,0,2,1,3], "barre": null, "base_fret": 1, "tips": ["Triángulo invertido respecto a D"] },
+    { "name": "G7", "quality": "séptima", "group": "septima", "frets": [3,2,0,0,0,1], "fingers": [3,2,0,0,0,1], "barre": null, "base_fret": 1, "tips": ["Tensión que pide resolver a C"] },
+    { "name": "C7", "quality": "séptima", "group": "septima", "frets": [-1,3,2,3,1,0], "fingers": [0,3,2,4,1,0], "barre": null, "base_fret": 1, "tips": ["Es C + meñique en la 3ª cuerda, traste 3"] },
+    { "name": "B7", "quality": "séptima", "group": "septima", "frets": [-1,2,1,2,0,2], "fingers": [0,2,1,3,0,4], "barre": null, "base_fret": 1, "tips": ["Usa los 4 dedos", "Clásico para volver a Em"] },
+    { "name": "Em7", "quality": "menor séptima", "group": "septima", "frets": [0,2,0,0,0,0], "fingers": [0,2,0,0,0,0], "barre": null, "base_fret": 1, "tips": ["Un solo dedo"] },
+    { "name": "Am7", "quality": "menor séptima", "group": "septima", "frets": [-1,0,2,0,1,0], "fingers": [0,0,2,0,1,0], "barre": null, "base_fret": 1, "tips": ["Es Am quitando el dedo 3"] },
+    { "name": "Cmaj7", "quality": "mayor séptima", "group": "septima", "frets": [-1,3,2,0,0,0], "fingers": [0,3,2,0,0,0], "barre": null, "base_fret": 1, "tips": ["Es C quitando el dedo 1: suave y abierto"] },
+    { "name": "Dsus2", "quality": "sus2", "group": "otro", "frets": [-1,-1,0,2,3,0], "fingers": [0,0,0,1,3,0], "barre": null, "base_fret": 1, "tips": ["D quitando el dedo 2: suena abierto, sin tercera"] },
+    { "name": "Dsus4", "quality": "sus4", "group": "otro", "frets": [-1,-1,0,2,3,3], "fingers": [0,0,0,1,3,4], "barre": null, "base_fret": 1, "tips": ["Alterna D–Dsus4–D para adornar"] }
+  ]
+}

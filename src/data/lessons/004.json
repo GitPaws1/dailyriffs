@@ -1,0 +1,14 @@
+{
+  "id": "004", "type": "lesson", "channel": "tecnica", "title": "Tus primeros acordes", "level": 1, "estimated_minutes": 15, "confidence": "alta",
+  "summary": "Dónde presionar, cómo arquear los dedos y tu primer cambio.",
+  "text": "Presiona con la yema, justo detrás del traste: no encima ni a la mitad. Arquea los dedos para que no apaguen las cuerdas vecinas.\n\nEm usa dos dedos y suenan las 6 cuerdas. Am usa tres y la 6ª no se toca.\n\nEl truco del cambio: de Em a Am, los dedos 2 y 3 bajan una cuerda juntos, como bloque, y el 1 entra en la 2ª cuerda. Muévelos a la vez, no uno por uno.",
+  "blocks": [
+    { "type": "chord", "note": "Toca el diagrama para oírlo. Luego tócalo tú y revisa cuerda por cuerda que todas suenen.", "name": "Em", "frets": [0,2,2,0,0,0], "fingers": [0,2,3,0,0,0], "barre": null, "base_fret": 1, "tips": ["Dedos 2 y 3 en el traste 2 de las cuerdas 5 y 4"] },
+    { "type": "chord", "name": "Am", "frets": [-1,0,2,2,1,0], "fingers": [0,0,2,3,1,0], "barre": null, "base_fret": 1, "tips": ["No toques la 6ª cuerda", "Dedo 1 en el traste 1 de la 2ª"] },
+    { "type": "exercise", "note": "Cuenta un cambio cada vez que el acorde nuevo suena limpio. Si zumba, no cuenta.", "goal": "Cambiar de Em a Am", "duration_sec": 60, "metric": "cambios por minuto", "target": 20, "chords": ["Em", "Am"], "bpm": 60 },
+    { "type": "quiz", "question": "¿Dónde presionas la cuerda?", "options": ["Justo detrás del traste", "Encima del traste metálico", "A la mitad entre trastes"], "answer": 0, "why": "Detrás del traste necesitas menos fuerza y no zumba." },
+    { "type": "quiz", "question": "¿Qué cuerda NO tocas en Am?", "options": ["6ª", "5ª", "1ª"], "answer": 0, "why": "La raíz de Am es la 5ª al aire (A); la 6ª (E) ensucia el bajo." },
+    { "type": "quiz", "question": "Una cuerda suena apagada en tu Em. Causa más probable:", "options": ["Un dedo plano la está rozando", "La guitarra está desafinada", "El Gain está bajo"], "answer": 0, "why": "Arquea: la punta presiona y el resto del dedo no toca las cuerdas vecinas." }
+  ],
+  "checkpoint": { "action": "Haz el entrenador de cambios Em ↔ Am.", "success_criteria": "20 cambios limpios en 60 segundos.", "bpm": 60 }
+}

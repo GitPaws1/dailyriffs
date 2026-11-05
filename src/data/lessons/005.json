@@ -1,0 +1,13 @@
+{
+  "id": "005", "type": "lesson", "channel": "tecnica", "title": "Ritmo a tiempo", "level": 2, "estimated_minutes": 15, "confidence": "alta",
+  "summary": "Rasgueo a tiempo con metrónomo y tu primera progresión.",
+  "text": "El ritmo manda: un acorde a tiempo suena mejor que uno perfecto tarde.\n\nRasguea hacia abajo en cada clic: 4 rasgueos por compás. Cambia de acorde justo en el tiempo 1. Si no llegas, suelta el acorde en el tiempo 4 y deja sonar las cuerdas al aire mientras te mueves: es normal y se oye bien.\n\nProgresión: Em | Am | D | Em. Acorde nuevo: D, que se rasguea solo desde la 4ª cuerda.",
+  "blocks": [
+    { "type": "chord", "note": "D se rasguea desde la 4ª cuerda hacia abajo.", "name": "D", "frets": [-1,-1,0,2,3,2], "fingers": [0,0,0,1,3,2], "barre": null, "base_fret": 1, "tips": ["Forma de triángulo", "Dedo 3 en la 2ª cuerda, traste 3"] },
+    { "type": "exercise", "note": "El cambio difícil es Am → D. Aíslalo antes de tocar la progresión.", "goal": "Cambiar de Am a D", "duration_sec": 60, "metric": "cambios por minuto", "target": 15, "chords": ["Am", "D"], "bpm": 60 },
+    { "type": "quiz", "question": "¿Cuántos rasgueos hacia abajo hay por compás en este ejercicio?", "options": ["2", "4", "8"], "answer": 1, "why": "4/4 con un rasgueo por clic: 4 por compás." },
+    { "type": "quiz", "question": "No llegas al cambio a tiempo. ¿Qué haces?", "options": ["Paras el metrónomo y esperas", "Sueltas el acorde en el 4 y llegas al 1", "Tocas más rápido"], "answer": 1, "why": "El pulso no se detiene: sacrificas el tiempo 4 para caer a tiempo en el 1." },
+    { "type": "quiz", "question": "¿Cuándo subes el tempo?", "options": ["Tras 4 vueltas limpias seguidas", "Cuando te aburres", "Después de cada vuelta"], "answer": 0, "why": "Regla de DailyRiffs: 4 repeticiones limpias seguidas y luego +5 BPM." }
+  ],
+  "checkpoint": { "action": "Toca Em | Am | D | Em con 4 rasgueos por compás a 60 BPM.", "success_criteria": "4 vueltas seguidas sin parar; luego sube a 65 BPM.", "bpm": 60 }
+}
