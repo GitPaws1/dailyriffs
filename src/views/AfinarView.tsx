@@ -2,6 +2,8 @@
 import { useDS } from '@/ds/DSProvider';
 import { Shell } from '@/components/Shell';
 import { PageHead } from '@/components/PageHead';
+import { VUTunerPro } from '@/components/VUTunerPro';
+import { useT } from '@/i18n/I18nProvider';
 
 const STRINGS = [
   ['6ª (grave)', 'Mi · E2', '82.41', 'Mi'], ['5ª', 'La · A2', '110.00', 'Amigo'], ['4ª', 'Re · D3', '146.83', 'Dice:'],
@@ -10,17 +12,18 @@ const STRINGS = [
 
 export function AfinarView() {
   const ds = useDS();
+  const t = useT();
   return (
     <Shell active="instrumento">
       <div className="page">
-        <PageHead channel="instrumento" kicker="AFINACIÓN ESTÁNDAR · E A D G B E" title="Afina tu Strato" lead="Toca una cuerda, mira la aguja y gira la clavija hasta que marque ● AFINADA." />
+        <PageHead channel="instrumento" kicker="AFINACIÓN ESTÁNDAR · E A D G B E" title="Afina tu Strato" lead="Toca una cuerda, mira la aguja y gira la clavija hasta que se prenda el LED central." />
         <section className="section--tight row" style={{ gap: 'var(--space-xl)' }}>
-          <ds.VUTuner string={6} />
+          <VUTunerPro labels={t.tuner} initialString={6} />
           <div className="stack read" style={{ flex: '1 1 300px' }}>
             <ol className="prose" style={{ margin: 0, paddingLeft: 20 }}>
-              <li>Pulsa <strong>MIC</strong> y permite el micrófono. Acerca el celular a la bocina del Frontman o a la guitarra.</li>
-              <li>Toca la 6ª cuerda al aire, sola, y déjala sonar.</li>
-              <li><strong>▲ TENSA</strong>: la nota está baja, aprieta la clavija. <strong>▼ AFLOJA</strong>: está alta, aflójala. Ve de la 6ª a la 1ª.</li>
+              <li>Pulsa <strong>MIC</strong> y permite el micrófono. Acerca el celular a la bocina del Frontman o a la guitarra. En iPhone, quita el modo silencio.</li>
+              <li>Toca la 6ª cuerda al aire, sola, y déjala sonar. Con <strong>AUTO</strong> prendido detecta qué cuerda es.</li>
+              <li><strong>▲ TENSA</strong>: la nota está baja, aprieta la clavija. <strong>▼ AFLOJA</strong>: está alta, aflójala. Ve de la 6ª a la 1ª. Cuando el LED central se prende verde y vibra el celular, esa cuerda ya quedó.</li>
               <li>Sin micrófono: toca las teclas E A D G B E para oír la referencia y compara de oído.</li>
             </ol>
             <p className="caption">El micrófono lee una nota a la vez. Con ruido, o si tocas varias cuerdas, la lectura falla; en ese caso usa tu afinador de clip.</p>

@@ -17,12 +17,14 @@ Se despliega solo a GitHub Pages con cada push a `main` (activa *Settings → Pa
 | Ruta | Canal | Qué hace |
 |---|---|---|
 | `/` | — | Riff del día, ruta (cassette), lecciones con progreso, herramientas |
-| `/afinar/` | CH-04 | `VUTuner` con micrófono (una nota a la vez) y tonos de referencia |
+| `/afinar/` | CH-04 | `VUTunerPro`: detección McLeod por cuadro, LOCK con histéresis, 9 LEDs, LCD, AUTO, vibración al afinar |
 | `/diapason/` | CH-01 | `Fretboard` libre + juego "Encuentra la nota" con racha |
 | `/acordes/` | CH-02 | 20 acordes abiertos filtrables + entrenador de cambios (60 s) |
 | `/metronomo/` | CH-02 | `Metronome` con tap tempo y registro de BPM limpio |
 | `/lecciones/001-005/` | varios | Lecciones del contrato JSON: bloques, 3 preguntas, checkpoint |
-| `/canciones/` | CH-03 | Aviso de Fase 2 (canciones con IA) |
+| `/canciones/` | CH-03 | Repertorio (AlbumSleeve), filtros por nivel, **Pega tu tab** (tab/cifrado exacto, guardado local) |
+| `/canciones/tocar/?id=` | CH-03 | Ficha, consola de práctica (metrónomo + tab + cifrado en un solo reloj de audio), speed trainer, tu sonido |
+| `/equipo/` | CH-04 | Strato SSS + Frontman 10G por defecto: selector de 5, perillas, Clean/O.D., presets |
 
 El progreso se guarda en el navegador (`localStorage`), por dispositivo.
 
@@ -37,8 +39,15 @@ El progreso se guarda en el navegador (`localStorage`), por dispositivo.
 ## Límites honestos
 
 - El afinador lee **una nota a la vez**; con ruido o acordes falla.
-- El metrónomo del sistema usa el reloj del navegador: con pantalla bloqueada puede pausarse o desfasarse.
+- Metrónomo, tab y acordes corren en `Tone.Transport` (reloj de audio): no se desfasan; si iOS suspende Safari con la pantalla bloqueada, se detienen.
+- En iPhone, el switch de silencio apaga el audio web.
 - Sin componentes aún (no construidos, esperan aprobación de diseño): patrón de rasgueo, timeline de canción, chat del tutor, onboarding, pantalla de canción.
+
+## Fases 1-4 (nov 2026)
+
+- `src/lib/tabtext` parser de tab ASCII; `src/lib/chords` cifrado por compases + formas (reusa `data/chords.json`); `src/lib/audio` motor, afinador, agenda y transport; `src/lib/song` esquema zod, seeds, prompt; `src/lib/gear` catálogo y RigProvider; `src/i18n` diccionarios es/en (cliente: el export estático no tiene proxy).
+- `npm test`: 49 pruebas (vitest). Propuestas sin componente aprobado: cifrado por compases, formulario de importación, selector de pastilla, canal Clean/O.D. (`src/styles/app-ext.css`).
+- Canciones con derechos entran por "Pega tu tab"; las semillas son originales o de dominio público. La búsqueda con IA necesita servidor (prompt listo en `src/lib/song/prompt.ts`).
 
 ## Siguiente
 

@@ -1,6 +1,6 @@
 /* Progreso local (por dispositivo). Lecturas y escrituras protegidas: el almacenamiento puede no existir. */
 const KEY = 'dailyriffs:v1';
-export interface Store { done: Record<string, string>; best: Record<string, number>; bpm: { date: string; bpm: number }[]; theme?: 'stage' | 'cassette' }
+export interface Store { done: Record<string, string>; best: Record<string, number>; bpm: { date: string; bpm: number }[]; theme?: 'stage' | 'cassette'; lang?: 'es' | 'en' }
 const empty = (): Store => ({ done: {}, best: {}, bpm: [] });
 
 export function load(): Store {

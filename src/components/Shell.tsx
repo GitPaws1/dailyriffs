@@ -5,6 +5,7 @@ import { useDS } from '@/ds/DSProvider';
 import type { Channel } from '@/ds/types';
 import { BASE, href } from '@/lib/nav';
 import { save } from '@/lib/storage';
+import { useI18n } from '@/i18n/I18nProvider';
 
 const ITEMS: { channel: Channel; label: string; path: string }[] = [
   { channel: 'teoria', label: 'Diapasón', path: '/diapason/' },
@@ -16,6 +17,7 @@ const ITEMS: { channel: Channel; label: string; path: string }[] = [
 export function Shell({ active, children }: { active?: Channel; children: React.ReactNode }) {
   const ds = useDS();
   const router = useRouter();
+  const { lang, setLang } = useI18n();
   const [theme, setTheme] = React.useState<'stage' | 'cassette'>('stage');
   React.useEffect(() => { setTheme(document.documentElement.dataset.theme === 'cassette' ? 'cassette' : 'stage'); }, []);
 
@@ -43,7 +45,8 @@ export function Shell({ active, children }: { active?: Channel; children: React.
       <ds.NavBar items={ITEMS.map((i) => ({ channel: i.channel, label: i.label, href: href(i.path) }))} active={active} homeHref={href('/')} cta={null} />
       <main id="main">{children}</main>
       <footer className="footer">
-        <p className="kicker">DAILYRIFFS · FASE 1 · <a className="link" href={href('/metronomo/')}>METRÓNOMO</a> · <a className="link" href={href('/lecciones/')}>LECCIONES</a></p>
+        <p className="kicker">DAILYRIFFS · <a className="link" href={href('/metronomo/')}>METRÓNOMO</a> · <a className="link" href={href('/lecciones/')}>LECCIONES</a> · <a className="link" href={href('/equipo/')}>EQUIPO</a></p>
+        <ds.Button variant="key" size="sm" led={lang === 'en'} onClick={() => setLang(lang === 'es' ? 'en' : 'es')} aria-label="Idioma / Language">{lang === 'es' ? 'ES' : 'EN'}</ds.Button>
         <ds.Button variant="key" size="sm" led={theme === 'cassette'} onClick={toggleTheme} aria-label="Tema claro Cassette">CASSETTE</ds.Button>
       </footer>
     </div>

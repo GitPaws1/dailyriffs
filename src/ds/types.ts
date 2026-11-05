@@ -26,6 +26,8 @@ export interface DailyRiffsDS {
   QuizConsole: C<{ questions?: QuizQuestion[]; channel?: Channel; model?: string; subtitle?: string; className?: string }>;
   AmpPanel: C<{ controls?: AmpControl[]; model?: string; preset?: string; on?: boolean; onChange?: (values: Record<string, number>) => void; className?: string }>;
   StickyNote: C<{ tone?: 'mustard' | 'orange' | 'sage' | 'paper' | 'teal'; kicker?: string; sign?: string; rotate?: number; children: React.ReactNode; className?: string }>;
+  AlbumSleeve: C<{ title: string; coverTitle?: string; artist?: string; keySig?: string; bpm?: number; level?: 1 | 2 | 3 | 4 | 5; pattern?: 'rings' | 'holo' | 'sun' | 'grid' | 'teal'; art?: string; disc?: 'vinyl' | 'cd' | 'color'; discColor?: Channel; code?: string; channel?: Channel; href?: string; className?: string }>;
+  SpecSheet: C<{ name: string; kicker?: string; subtitle?: string; specs: Array<[string, string]>; children?: React.ReactNode; className?: string }>;
   pluck: (string: number, fret: number) => void;
   noteName: (string: number, fret: number) => string;
 }

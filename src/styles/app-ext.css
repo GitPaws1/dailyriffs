@@ -1,0 +1,120 @@
+/* DailyRiffs v3 — extensiones (VUTuner v2, consola de práctica, equipo, repertorio).
+   Solo tokens existentes. PROPUESTAS sin componente aprobado: .dr-chart, .dr-input/.dr-field, .dr-pick, .dr-gal. */
+
+/* ---------- VUTuner v2: LEDs, LCD, LOCK ---------- */
+.dr-vu__zone { fill: none; stroke: var(--lcd-ink); stroke-width: 3px; opacity: .55; }
+.dr-vu.is-lock .dr-vu__zone { opacity: 1; filter: drop-shadow(0 0 4px rgba(107,252,149,0.8)); }
+.dr-vu__needle { transition: transform 60ms linear; will-change: transform; }
+.dr-vu.is-lock .dr-vu__needle line { stroke: var(--lcd-ink); filter: drop-shadow(0 0 6px rgba(107,252,149,0.9)); }
+.dr-vu.is-lock .dr-vu__note { color: var(--lcd-ink); text-shadow: 0 0 10px rgba(107,252,149,0.85); }
+.dr-vu__screen::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(80% 70% at 50% 80%, rgba(107,252,149,0.35), transparent 70%); }
+.dr-vu__screen.is-flash::after { animation: dr-vu-flash 260ms steps(4) both; }
+@keyframes dr-vu-flash { 0% { opacity: 1; } 100% { opacity: 0; } }
+
+.dr-vu__leds { display: grid; grid-template-columns: repeat(9, 1fr); align-items: center; justify-items: center; padding: 6px 10px; border-radius: var(--radius-sm); background: var(--surface-000); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.6); }
+.dr-vu__ledseg { width: 9px; height: 9px; border-radius: var(--radius-pill); background: var(--surface-400); box-shadow: inset 0 0 0 1px var(--hairline); transition: background-color 60ms, box-shadow 60ms; }
+.dr-vu__ledseg.is-on { background: var(--signal); box-shadow: var(--shadow-led); opacity: .7; }
+.dr-vu__ledseg.is-center { width: 14px; height: 14px; }
+.dr-vu__ledseg.is-center.is-on { opacity: 1; background: var(--lcd-ink); box-shadow: 0 0 10px rgba(107,252,149,0.7); }
+.dr-vu__ledseg.is-center.is-lock { opacity: 1; background: var(--lcd-ink); box-shadow: 0 0 6px rgba(107,252,149,1), 0 0 22px rgba(107,252,149,0.75); transform: scale(1.15); }
+
+.dr-vu__lcd { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: var(--space-sm); padding: 8px 14px 6px; border-radius: var(--radius-sm);
+  background: var(--lcd-bg); color: var(--lcd-ink); font-family: var(--font-lcd); font-size: 28px; line-height: 1; box-shadow: inset 0 0 0 1px var(--hairline), inset 0 0 20px rgba(0,0,0,0.9); }
+.dr-vu__lcdnote small { font-size: 18px; margin-left: 1px; }
+.dr-vu__lcdmsg { font-family: var(--font-mono); font-size: 11px; font-weight: 500; text-align: center; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dr-vu__lcdc { min-width: 4ch; text-align: right; }
+.dr-vu__lcd.is-lock { text-shadow: 0 0 8px rgba(107,252,149,0.9); }
+.dr-vu__lcd.is-lock .dr-vu__lcdmsg { opacity: 1; font-weight: 700; }
+
+/* ---------- Práctica ---------- */
+.dr-deck { display: flex; flex-direction: column; gap: var(--space-lg); min-width: 0; }
+.dr-deck__rack { display: flex; flex-wrap: wrap; gap: var(--space-lg); align-items: stretch; }
+.dr-deck__side { flex: 1; min-width: 260px; display: flex; flex-direction: column; gap: var(--space-md); padding: var(--space-lg); background: var(--surface-100); border: 1px solid var(--hairline); border-radius: var(--radius-md); }
+.dr-deck__keys { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+.dr-deck__read { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.dr-deck__read .dr-lcd { min-width: 120px; flex: 1; }
+.dr-deck__trainer { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
+.dr-deck__trainer .dr-meter { flex: 1; min-width: 180px; }
+.dr-deck__note { margin: 0; font-family: var(--font-display); font-size: 13px; line-height: 1.5; letter-spacing: -0.26px; color: var(--ink-faint); }
+.dr-tab__staff + .dr-tab__staff { padding-top: var(--space-sm); border-top: 1px solid var(--hairline); }
+.dr-tab__staff { scroll-behavior: auto; }
+
+/* PROPUESTA · cifrado por compases */
+.dr-chart__sec { display: flex; flex-direction: column; gap: var(--space-xs); }
+.dr-chart__name { margin: 0; display: flex; align-items: center; gap: var(--space-xs); font-family: var(--font-mono); font-size: 12px; font-weight: 500; text-transform: uppercase; color: var(--ink-faint); }
+.dr-chart__pass { margin-left: auto; color: var(--signal-ink); }
+.dr-chart__bars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-left: 2px solid var(--hairline-strong); }
+.dr-chart__bar { padding: 10px 12px; border-right: 2px solid var(--hairline-strong); border-bottom: 1px solid var(--hairline); font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dr-chart__bar.is-on { background: var(--surface-200); color: var(--signal-ink); box-shadow: inset 0 -3px 0 var(--signal); }
+.dr-chart__text { margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; color: var(--ink-muted); white-space: pre-wrap; }
+.dr-chart__shapes { display: flex; flex-wrap: wrap; gap: var(--space-sm); padding-top: var(--space-sm); border-top: 1px solid var(--hairline); }
+
+/* ---------- Equipo ---------- */
+.dr-rig { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-xl); align-items: start; }
+.dr-rig__models, .dr-rig__presets { display: flex; flex-wrap: wrap; gap: var(--space-xs); align-items: center; }
+.dr-pick { display: flex; flex-direction: column; gap: var(--space-xs); padding-top: var(--space-sm); }
+.dr-pick__lbl { font-family: var(--font-label); font-size: 11px; font-weight: 600; color: var(--ink-muted); margin-right: var(--space-xs); }
+.dr-pick__keys { display: flex; gap: 6px; }
+.dr-pick__keys .dr-btn--key { min-width: 0; flex: 1; flex-direction: column; gap: 4px; }
+.dr-pick__keys .dr-btn__label { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.dr-pick__sub { font-family: var(--font-mono); font-size: 9px; font-weight: 500; opacity: .8; }
+.dr-pick__name { font-family: var(--font-mono); font-size: 12px; font-weight: 500; text-transform: uppercase; color: var(--signal-ink); }
+.dr-pick .dr-btn:disabled { opacity: .35; }
+.dr-amp__chan .dr-amp__toggle { margin: 12px 0; }
+
+/* ---------- PROPUESTA · galería e importación ---------- */
+.dr-gal__bar { display: flex; flex-wrap: wrap; gap: var(--space-xs); align-items: center; }
+.dr-gal__count { margin-left: auto; font-family: var(--font-lcd); font-size: 28px; line-height: 1; color: var(--ink-faint); }
+.dr-gal { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-xl) var(--space-lg); }
+.dr-gal__item { display: flex; flex-direction: column; gap: var(--space-sm); }
+.dr-gal__meta { display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); width: 260px; font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink-faint); }
+.dr-gal__import { display: flex; flex-direction: column; gap: var(--space-2xl); }
+
+.dr-import, .dr-ai { display: flex; flex-direction: column; gap: var(--space-md); }
+.dr-import__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-sm); }
+.dr-import__grid .dr-field:nth-child(1), .dr-import__grid .dr-field:nth-child(2) { grid-column: span 2; }
+.dr-import__steps, .dr-import__act { display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center; }
+.dr-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.dr-field__lbl { font-family: var(--font-mono); font-size: 12px; font-weight: 500; text-transform: uppercase; color: var(--ink-faint); }
+.dr-input { width: 100%; box-sizing: border-box; padding: 12px 14px; border: 0; border-radius: var(--radius-sm); background: var(--surface-200); color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--hairline-strong); font-family: var(--font-display); font-size: 16px; letter-spacing: -0.32px; }
+.dr-input::placeholder { color: var(--ink-faint); }
+.dr-input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.dr-input--tab { font-family: var(--font-mono); font-size: 15px; line-height: 1.6; letter-spacing: 0; font-variant-ligatures: none; white-space: pre; overflow-x: auto; resize: vertical; }
+.dr-ai__row { display: flex; gap: var(--space-sm); align-items: center; }
+.dr-ai__note { margin: 0; font-family: var(--font-display); font-size: 13px; line-height: 1.5; color: var(--ink-faint); }
+.dr-msg { padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); border: 1px solid var(--hairline-strong); background: var(--surface-100); font-family: var(--font-display); font-size: 15px; color: var(--ink-muted); margin: 0; }
+.dr-msg b { font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--ch-tecnica); }
+.dr-msg ul { margin: 6px 0 0; padding-left: 18px; }
+.dr-msg--err b { color: var(--ch-repertorio); }
+.dr-msg--ok { color: var(--ch-teoria); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; }
+
+
+.dr-song__spec { flex: 1 1 280px; max-width: 520px; }
+.dr-import__grid .dr-field:nth-child(1), .dr-import__grid .dr-field:nth-child(2) { grid-column: span 2; }
+
+@media (max-width: 860px) { .dr-rig { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) {
+  .dr-tab, .dr-deck__side, .dr-spec { padding: var(--space-md); }
+  .dr-metro__grille { display: none; }
+  .dr-metro .dr-lcd { min-width: 0; flex: 1; }
+  .dr-amp__panel { grid-template-columns: minmax(0, 1fr); padding: var(--space-md); gap: var(--space-md); }
+  .dr-amp__inputs, .dr-amp__power { flex-direction: row; justify-content: center; }
+  .dr-amp__knobs { flex-wrap: wrap; justify-content: center; gap: var(--space-md); }
+  .dr-spec__name { font-size: 28px; overflow-wrap: anywhere; }
+  .dr-chart__bars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dr-import__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dr-gal { justify-items: center; }
+  .dr-deck__side { min-width: 0; }
+}
+/* VU en pantallas angostas: 6 cuerdas en una fila, AUTO y MIC abajo a medias. */
+@media (max-width: 440px) {
+  .dr-vu__keys .dr-btn--key { flex: 1 1 calc((100% - 30px) / 6); }
+  .dr-vu__keys .dr-btn--key:nth-last-child(-n+2) { flex: 1 1 calc(50% - 3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dr-vu__needle, .dr-vu__ledseg { transition: none; }
+  .dr-vu__screen.is-flash::after { animation: none; }
+  .dr-vu__ledseg.is-center.is-lock { transform: none; }
+}
